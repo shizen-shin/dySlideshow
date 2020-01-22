@@ -20,16 +20,13 @@
 }
 
 #thumbnails {
-}
-
-ul {
     overflow:hidden;
     list-style-type: none;
     cursor: pointer;
     max-width: 680px;
 }
 
-li {
+#thumbnails > li {
     float: left;
     margin: 0,4px,0;
     width: 100px;
@@ -79,12 +76,34 @@ img.thumbnailImage {
     cursor: pointer;
 }
 
-p {
+.subTitle {
     color:lightgoldenrodyellow;
     font-size: 0.7em;
 }
 
-
 #currentImage {
     border: 3px solid white;
+}
+
+#sign{
+    color:rgb(100, 100, 100);
+    float:right;
+    font-size: 0.5em;
+    margin:0 10px 0 0;
+}
+
+#features{
+    max-width: 685px;
+    background-color:rgb(243, 243, 243);
+    margin:10px auto;
+    padding: 2px 0 2px 10px;
+    color:gray;
+}
+
+#features > p{
+    text-decoration: underline;
+}
+
+#features > ul > li{
+    font-size: 0.9em;
 }
