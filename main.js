@@ -14,6 +14,8 @@
   var next = document.getElementById('next');
   var page = document.getElementById('page');
   var i = 0;
+  
+
 
   function createThumbs(){
     for(i=0;i<images.length;i++){
@@ -59,7 +61,6 @@
 
   next.addEventListener('click',function(){
       current ++;
-      console.log(current);
       if(current == 6){
         current = 0;
       }
@@ -88,6 +89,33 @@
 
   wbci();
 
+//自動送り機能
+  var interval = 3000;
+  var timer;
 
+  function playSlideshow(){
+    timer = setInterval(function(){
+      next.click();
+    },interval);
+  }
+  playSlideshow();
+
+  next.addEventListener('click',function(){
+    clearInterval(timer);
+    playSlideshow();
+  })
+
+  prev.addEventListener('click',function(){
+    clearInterval(timer);
+    playSlideshow();
+  })
+
+  var thums = document.getElementsByClassName('thumbnailImage');
+  for(i=0; i<thums.length; i++){
+    thums[i].addEventListener('click',function(){
+      clearInterval(timer);
+      playSlideshow();
+    })
+  }
 
 })();
