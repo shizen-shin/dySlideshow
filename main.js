@@ -3,13 +3,12 @@
     
   var current = 0; //index番号取得用
   var mainImage = document.getElementById('mainImage');
-
   var images =['images/pic01.jpg',
-  'images/pic02.jpg',
-  'images/pic03.jpg',
-  'images/pic04.jpg',
-  'images/pic05.jpg',
-  'images/pic06.jpg'];
+                'images/pic02.jpg',
+                'images/pic03.jpg',
+                'images/pic04.jpg',
+                'images/pic05.jpg',
+                'images/pic06.jpg'];
 
   var prev = document.getElementById('prev');
   var next = document.getElementById('next');
@@ -17,24 +16,27 @@
 
 
   function createThumbs(){
-    for(i=0;i<images.length;i++){
-      li = document.createElement('li');
-      li.dataset.index = i;
-      li.addEventListener('click',function(){
-        mainImage = this.children[0].src;
+    for(var i=0;i<images.length;i++){
+      var li = document.createElement('li');
+
+      var img = document.createElement('img');
+      img.src = images[i];
+      img.className = 'thumbnailImage';
+      img.dataset.index = i;
+
+      li.appendChild(img);
+      thumbnails.appendChild(li);
+
+
+     li.addEventListener('click',function(){
+        mainImage.src = this.children[0].src;
         current = this.dataset.index;
         dpn();
       });
-
     }
   }
 
-    img = document.createElement('img');
-    img.src = images[i];
-
-
-
-
+  createThumbs();
 
 
   function dpn(){
@@ -72,5 +74,6 @@
   }
 
   wbc();
+
 
 })();
